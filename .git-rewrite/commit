@@ -1,0 +1,27 @@
+tree 705e0bf2a88464e039145dff8e040ae076054496
+parent 352171a6cd40c70efddc6587253a74ebab9a5cef
+author servicecallsam <55043996-servicecallsam@users.noreply.replit.com> 1773689665 +0000
+committer servicecallsam <55043996-servicecallsam@users.noreply.replit.com> 1773689665 +0000
+
+Task #9: /demo Statement section Podium-scale typography
+
+Redesigned the "Business Statement" section on /demo to command the
+screen with Podium-scale manifesto typography.
+
+Changes to client/src/pages/DemoLanding.tsx (lines ~314-326):
+- Section: Changed from py-20/py-28 padding to min-h-[85vh] with flex
+  centering so the statement dominates the viewport as a standalone section
+- H2 (first sentence): Scaled from text-3xl/4xl/5xl/6xl to
+  text-5xl/6xl/7xl/8xl with tighter leading (1.08) and tracking-tight
+  for bold, impactful display
+- P (second sentence): Scaled from text-lg/xl to text-2xl/3xl/4xl with
+  font-medium weight and leading-snug, creating clear hierarchy while
+  remaining prominent (not body text)
+- Container: Widened max-w from 3xl to 5xl for the section, and from
+  2xl to 3xl for the paragraph, giving generous breathing room
+- Spacing: Increased mb-6 to mb-8 on h2, mb-10 to mb-12 on p for
+  better visual separation
+
+No changes to other sections. CTA button preserved as-is.
+
+Replit-Task-Id: bb3d9484-1faf-4b76-aaf2-dc0a03e60e7b

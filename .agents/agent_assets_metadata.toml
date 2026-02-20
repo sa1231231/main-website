@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "uYs-vaqiwnnAgsn9FoyF8"
+uri = "file://client/public/favicon.png"
+type = "image"
+title = "Service Call Saver favicon (1024×1024 PNG)"

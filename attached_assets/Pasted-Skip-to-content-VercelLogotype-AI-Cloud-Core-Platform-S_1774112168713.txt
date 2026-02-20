@@ -1,0 +1,231 @@
+Skip to content
+VercelLogotype
+AI Cloud
+
+
+
+
+
+Core Platform
+
+
+
+
+Security
+
+
+
+
+Company
+
+
+
+
+
+Learn
+
+
+
+
+Open Source
+
+
+
+
+Use Cases
+
+
+
+
+
+Tools
+
+
+
+Users
+
+
+
+Search Documentation
+⌘ K
+Deployments
+Troubleshoot project collaboration
+Troubleshoot project collaboration
+Last updated March 13, 2026
+This guide will help you troubleshoot deployment failures related to project collaboration.
+
+For private repositories, a deployment can fail if Vercel cannot identify the commit author, or if your team requires manual approval before adding the committer. You can use the following checklist to make sure your Vercel team is properly configured:
+
+Ensure contributors who push code have Vercel accounts linked to their git provider and can be added to your team through collaboration settings.
+
+For each team member, verify their Vercel account is connected to their git provider.
+
+Confirm bot commits are properly configured by the git provider.
+
+Collaboration is free for public repositories.
+Team configuration
+Hobby teams
+The Hobby Plan does not support collaboration for private repositories. If you need collaboration, upgrade to the Pro Plan.
+
+To deploy commits under a Hobby team, the commit author must be the owner of the Hobby team containing the Vercel project connected to the Git repository. This is verified by comparing the Login Connections Hobby team's owner with the commit author.
+
+To make sure we can verify your commits:
+
+Make sure all commits are authored by the git user associated with your account.
+Link your git provider to your Vercel account in Account Settings
+If your account is not connected to your git provider, make sure you've properly configured your Vercel email address so that it matches the email associated with the commit.
+
+For the most reliable experience, ensure both your project and account are properly connected to your git provider.
+
+For more information, see Using Hobby teams
+
+Pro teams
+The Pro Plan allows for collaboration through team membership. When someone with a Vercel account commits to your codebase, they may be added automatically or require approval, depending on your collaboration settings.
+
+To deploy commits under a Vercel Pro team, the commit author must be a member of the team containing the Vercel project connected to the Git repository.
+
+To make sure we can verify commits associated with your team:
+
+Make sure contributors have Vercel accounts linked to their git provider in Account Settings
+Review your team's collaboration settings to confirm whether Vercel should auto approve or manually approve new committers
+If your team uses manual approval, approve the pending membership before the contributor deploys again. After approval, the committer must redeploy their changes.
+For more information, see Using Pro teams
+
+Bot access
+Ensure your bots are properly configured and that their commits are clearly identified as automated.
+
+Account configuration
+Connecting Git provider accounts
+Each team member must connect their git provider account to their Vercel account:
+
+Visit Account Settings
+Navigate to the Login Connections section
+Connect your GitHub, GitLab, or Bitbucket account
+Resolving git provider commit attribution issues
+Your git provider associates commits with users by matching the commit email to an email on your git provider account.
+
+If you see an error saying the provider could not associate the committer with a user, the local git configuration email address likely does not match an email registered on their git provider account. Run git config user.email on the machine that created the commit, then verify that it matches a verified email on the git provider account.
+
+For multiple email addresses, see Managing multiple email addresses.
+
+Managing multiple email addresses
+If you use multiple email addresses for git commits, you will need to configure a secondary email address with either your git provider or Vercel depending on if your git repository is linked to your project.
+
+To add secondary email addresses to your Vercel account:
+
+Go to your Account Settings
+Add any email addresses you use for git commits
+Verify each email address
+Previous
+Sharing a Preview Deployment
+Next
+Environment Variables
+Was this helpful?
+
+
+
+
+
+Your feedback...
+supported.
+On this page
+Team configuration
+Hobby teams
+Pro teams
+Bot access
+Account configuration
+Connecting Git provider accounts
+Resolving git provider commit attribution issues
+Managing multiple email addresses
+
+Copy as Markdown
+
+Install Vercel Plugin
+
+Give feedback
+
+Ask AI about this page
+Get Started
+Templates
+Supported frameworks
+Marketplace
+Domains
+Build
+Next.js on Vercel
+Turborepo
+v0
+Scale
+Content delivery network
+Fluid compute
+CI/CD
+Observability
+AI Gateway
+New
+Vercel Agent
+New
+Secure
+Platform security
+Web Application Firewall
+Bot management
+BotID
+Sandbox
+New
+Resources
+Pricing
+Customers
+Enterprise
+Articles
+Startups
+Solution partners
+Learn
+Docs
+Blog
+Changelog
+Knowledge Base
+Academy
+Community
+Frameworks
+Next.js
+Nuxt
+Svelte
+Nitro
+Turbo
+SDKs
+AI SDK
+Workflow DevKit
+New
+Flags SDK
+Chat SDK
+Streamdown AI
+New
+Use Cases
+Composable commerce
+Multi-tenant platforms
+Web apps
+Marketing sites
+Platform engineers
+Design engineers
+Company
+About
+Careers
+Help
+Press
+Legal
+Privacy Policy
+Community
+Open source program
+Events
+Shipped on Vercel
+GitHub
+LinkedIn
+X
+YouTube
+Loading status…
+
+Select a display theme:
+
+system
+
+light
+
+dark
