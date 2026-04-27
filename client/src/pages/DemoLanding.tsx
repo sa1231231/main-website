@@ -147,15 +147,15 @@ const TESTIMONIALS = [
     name: "Jeffrey Melara",
     role: "Melara's Coffee",
     quote: "I feel a lot more confident that the customer's being taken care of. I was doing it all myself and I shouldn't have to spend so much time. You had it in your brain before we even did it on a whiteboard.",
-    vimeoUrl: "https://vimeo.com/1167128039/c959d2f139",
-    previewClip: "https://vimeo.com/1167141010/fc375eb811",
+    vimeoUrl: "https://www.youtube.com/watch?v=LlBXI7H4Fx4",
+    previewClip: "",
   },
   {
     name: "Jill Kaufman",
     role: "Divorce Network Pro",
     quote: "My leads were dropping out of my funnel. I didn't realize that I could automate it. You are on top of it. I knew I was going to get good results.",
-    vimeoUrl: "https://vimeo.com/1167126760/34da8cb75a",
-    previewClip: "https://vimeo.com/1167141000/52765e516a",
+    vimeoUrl: "https://www.youtube.com/watch?v=ibOGXP3XLLQ",
+    previewClip: "",
   },
   {
     name: "Cole Bingham",
@@ -249,17 +249,30 @@ function AudioDemoPlayer({ label, src, demoId }: { label: string; src: string; d
 
 const vimeoThumbnailCache = new Map<string, string>();
 
+function getYouTubeId(url: string): string | null {
+  if (!url) return null;
+  const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  return match ? match[1] : null;
+}
+
 function useVimeoThumbnail(vimeoUrl: string | undefined): { thumbnail: string | null; loading: boolean } {
+  const ytId = vimeoUrl ? getYouTubeId(vimeoUrl) : null;
   const [thumbnail, setThumbnail] = useState<string | null>(() => {
+    if (ytId) return `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
     if (vimeoUrl && vimeoThumbnailCache.has(vimeoUrl)) return vimeoThumbnailCache.get(vimeoUrl)!;
     return null;
   });
   const [loading, setLoading] = useState(() => {
-    if (!vimeoUrl) return false;
+    if (!vimeoUrl || ytId) return false;
     return !vimeoThumbnailCache.has(vimeoUrl);
   });
   useEffect(() => {
     if (!vimeoUrl) { setLoading(false); return; }
+    if (ytId) {
+      setThumbnail(`https://img.youtube.com/vi/${ytId}/hqdefault.jpg`);
+      setLoading(false);
+      return;
+    }
     if (vimeoThumbnailCache.has(vimeoUrl)) {
       setThumbnail(vimeoThumbnailCache.get(vimeoUrl)!);
       setLoading(false);
@@ -278,11 +291,21 @@ function useVimeoThumbnail(vimeoUrl: string | undefined): { thumbnail: string | 
       .catch(() => {})
       .finally(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
-  }, [vimeoUrl]);
+  }, [vimeoUrl, ytId]);
   return { thumbnail, loading };
 }
 
 function buildVimeoEmbedUrl(vimeoUrl: string, opts: { autoplay?: boolean; muted?: boolean; loop?: boolean; background?: boolean } = {}): string {
+  const ytId = getYouTubeId(vimeoUrl);
+  if (ytId) {
+    const params = new URLSearchParams();
+    params.set("rel", "0");
+    params.set("modestbranding", "1");
+    if (opts.autoplay) params.set("autoplay", "1");
+    if (opts.muted) params.set("mute", "1");
+    if (opts.loop) { params.set("loop", "1"); params.set("playlist", ytId); }
+    return `https://www.youtube.com/embed/${ytId}?${params.toString()}`;
+  }
   if (vimeoUrl.includes("player.vimeo.com")) return vimeoUrl;
   const cleaned = vimeoUrl.split("?")[0];
   const parts = cleaned.replace("https://vimeo.com/", "").split("/");
