@@ -143,7 +143,7 @@ export const content = {
     name: "Cole Bingham",
     role: "Wingman Insurance",
     website: "wingmanofficial.com",
-    vimeoUrl: "https://vimeo.com/1167020283/344ef52587",
+    vimeoUrl: "https://www.youtube.com/watch?v=b3qbCH25VRc",
   },
 
   videoCarousel: {

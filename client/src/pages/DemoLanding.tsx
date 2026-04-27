@@ -161,8 +161,8 @@ const TESTIMONIALS = [
     name: "Cole Bingham",
     role: "Wingman Insurance",
     quote: "If you combine his tech abilities, his understanding of business, and his work ethic, I think you'd be hard-pressed to find someone better.",
-    vimeoUrl: "https://vimeo.com/1167020283/344ef52587",
-    previewClip: "https://vimeo.com/1174516145/3312f6ea66",
+    vimeoUrl: "https://www.youtube.com/watch?v=b3qbCH25VRc",
+    previewClip: "",
   },
 ];
 
