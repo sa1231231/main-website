@@ -577,7 +577,7 @@ export default function DemoLanding() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-center mb-12 text-foreground">
               Real owners. <em className="italic">Real results.</em>
             </h2>
-            <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible sm:grid sm:grid-cols-2 max-w-3xl mx-auto">
+            <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 sm:overflow-visible sm:grid sm:grid-cols-2 sm:gap-8 sm:max-w-2xl sm:mx-auto sm:px-0">
               {TESTIMONIALS.map((t, i) => (
                 <div key={i} className="min-w-[280px] sm:min-w-0 snap-center">
                   <TestimonialCard testimonial={t} index={i} onPlay={(url) => setLightboxUrl(url)} />
