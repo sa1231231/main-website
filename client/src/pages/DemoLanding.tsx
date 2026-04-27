@@ -151,13 +151,6 @@ const TESTIMONIALS = [
     previewClip: "",
   },
   {
-    name: "Jill Kaufman",
-    role: "Divorce Network Pro",
-    quote: "My leads were dropping out of my funnel. I didn't realize that I could automate it. You are on top of it. I knew I was going to get good results.",
-    vimeoUrl: "https://www.youtube.com/watch?v=ibOGXP3XLLQ",
-    previewClip: "",
-  },
-  {
     name: "Cole Bingham",
     role: "Wingman Insurance",
     quote: "If you combine his tech abilities, his understanding of business, and his work ethic, I think you'd be hard-pressed to find someone better.",
